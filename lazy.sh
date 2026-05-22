@@ -19,12 +19,12 @@ curl -fsSL https://get.pulumi.com | sh
 export PATH=$PATH:$HOME/.pulumi/bin
 
 echo "=== Downloading and Installing AWS CLI v2 ==="
-curl "amazonaws.com" -o "awscliv2.zip"
+curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
 unzip -q awscliv2.zip
 sudo ./aws/install --update
 
 echo "=== Cleaning up AWS installation files ==="
-mv aws awscliv2.zip old/
+rm -rf aws awscliv2.zip
 
 echo "=== Installing GitHub CLI (gh) ==="
 sudo apt install -y gh
@@ -38,7 +38,7 @@ echo "=== Script execution complete! ==="
 echo "Please run 'source ~/.bashrc' or restart your terminal to use Pulumi."
 
 echo "=== Installing PYENV ==="
-sudo apt install make build-essential libssl-dev zlib1g-dev \
+sudo apt install -y make build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev curl git \
 libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 curl -fsSL https://pyenv.run | bash
