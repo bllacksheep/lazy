@@ -60,3 +60,10 @@ eval "$(pyenv virtualenv-init -)"
 EOF
 
 pyenv --version
+
+cat <<EOF >> ~/.profile
+export AWS_PROFILE=auth
+export PULUMI_CONFIG_PASSPHRASE=""
+export PULUMI_DIY_BACKEND_NO_LEGACY_WARNING=1
+export PYTHON_BUILD_CURL_OPTS="-k"
+EOF
